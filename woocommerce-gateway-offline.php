@@ -186,7 +186,7 @@ function wc_offline_gateway_init() {
 		 */
 		public function process_payment( $order_id ) {
 	
-			$order = wc_get_order( $order_id );
+			$order = new WC_Order( $order_id );
 			
 			// Mark as on-hold (we're awaiting the payment)
 			$order->update_status( 'on-hold', __( 'Awaiting offline payment', 'wc-gateway-offline' ) );
